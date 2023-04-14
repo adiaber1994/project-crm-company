@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup-page.component.css']
 })
 export class SignupPageComponent {
+  nameField = '';
+  
+  formValid():boolean{
+    return(this.nameField.length >= 2);
+  }
 
 }

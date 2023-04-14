@@ -7,6 +7,7 @@ import { TopnavComponent } from './shared/topnav/topnav.component';
 import { SignupPageComponent } from './auth/signup-page/signup-page.component';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
+import { AboutModule } from './about/about.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    SharedModule
+    SharedModule,
+    AboutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
