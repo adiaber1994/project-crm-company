@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class SignupPageComponent {
   nameField = '';
-  
+
+
   formValid():boolean{
     return(this.nameField.length >= 2);
   }
