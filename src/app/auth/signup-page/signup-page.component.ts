@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup-page',
@@ -6,11 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup-page.component.css']
 })
 export class SignupPageComponent {
-  nameField = '';
 
+  signupForm = new FormGroup({
+    name: new FormControl('', {
+      validators: [Validators.required, Validators.minLength(2)]
+    }),
+    email: new FormControl('', {
+      validators: [Validators.required, Validators.email]
+    }),
+    password: new FormControl('', {
+      validators: [Validators.required, Validators.minLength(6)]
+    })
+  })
 
-  formValid():boolean{
-    return(this.nameField.length >= 2);
+  onSubmit() {
+    if (this.signupForm.invalid) {
+      return;
+    }
   }
 
 }
