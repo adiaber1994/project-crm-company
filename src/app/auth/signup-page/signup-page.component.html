@@ -2,23 +2,19 @@
     Sign Up
 </h2>
 
-<div class="col-6 m-auto">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="col-6 m-auto">
     <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
-       <input [(ngModel)]="nameField" #name="ngModel" required minlength="2" type="text" class="form-control" id="name" placeholder="Name">
-       <p>The name is: {{nameField}}</p>
-       <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">error</div>
-       <div *ngIf="name.errors?.['requred']">Name is required</div>
-       <div *ngIf="name.errors?.['minlength']">Name must be at least 2 chars</div>
+        <input formControlName="name" type="text" name="" id="" class="form-control">
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
-       <input type="text"  class="form-control" id="Email" placeholder="name@email.com">
+       <input formControlName="email" type="text"  class="form-control" id="Email" placeholder="name@email.com">
     </div>
     <div class="mb-3">
         <label for="Password" class="form-label">Password:</label>
-         <input type="password" class="form-control" id="password" placeholder="password">
+         <input formControlName="password" type="password" class="form-control" id="password" placeholder="password">
     </div>
 
-    <button [disabled]="!formValid()" type="submit" class="btn btn-primary btn-lg"></button>
-</div>
+    <button [disabled]="signupForm.invalid" type="submit" class="btn btn-primary btn-lg"></button>
+</form>
