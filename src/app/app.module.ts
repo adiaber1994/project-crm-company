@@ -8,6 +8,7 @@ import { SignupPageComponent } from './auth/signup-page/signup-page.component';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { AboutModule } from './about/about.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AboutModule } from './about/about.module';
     AppRoutingModule,
     AuthModule,
     SharedModule,
-    AboutModule
+    AboutModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

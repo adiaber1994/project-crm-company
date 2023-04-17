@@ -20,6 +20,49 @@ export class SignupPageComponent {
     })
   })
 
+  nameFieldErr(): string {
+    const control = this.signupForm.get('name');
+    if (!control ||
+       !control.errors||
+       !control.dirty||
+       !control.touched
+      ) {
+      return'';
+    }
+     
+
+    if(control.getError('required')) {
+      return 'this field is required'
+    }
+
+
+    return '';
+  }
+
+  emailFieldErr(): string {
+    const control = this.signupForm.get('email');
+    if (!control ||
+       !control.errors||
+       !control.dirty||
+       !control.touched
+      ) {
+      return'';
+    }
+     
+
+    if(control.getError('required')) {
+      return 'this field is required'
+    }
+
+    if(control.getError('email')) {
+      return 'Email is not vaild'
+    }
+
+
+
+    return '';
+  }
+
   onSubmit() {
     if (this.signupForm.invalid) {
       return;

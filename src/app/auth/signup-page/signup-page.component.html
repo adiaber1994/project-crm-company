@@ -7,14 +7,22 @@
         <label for="name" class="form-label">Name:</label>
         <input formControlName="name" type="text" name="" id="" class="form-control">
     </div>
+
+    <div *ngIf="nameFieldErr()" class="text-danger bg-light mb-2 p-2">
+        {{nameFieldErr()}}</div>
+
     <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
        <input formControlName="email" type="text"  class="form-control" id="Email" placeholder="name@email.com">
     </div>
+
+    <div *ngIf="emailFieldErr()" class="text-danger bg-light mb-2 p-2">
+        {{emailFieldErr()}}</div>
+
     <div class="mb-3">
         <label for="Password" class="form-label">Password:</label>
          <input formControlName="password" type="password" class="form-control" id="password" placeholder="password">
     </div>
 
-    <button [disabled]="signupForm.invalid" type="submit" class="btn btn-primary btn-lg"></button>
+    <button [disabled]="signupForm.invalid" type="submit" class="btn btn-primary btn-lg text-center">submit</button>
 </form>

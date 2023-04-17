@@ -1,1 +1,30 @@
-<p>login-page works!</p>
+<h2 class="text-center">
+    company-crm
+</h2>
+
+<h6 class="text-center">login with your account</h6>
+
+<form  [formGroup]="loginForm" (ngSubmit)="onSubmit()"  class="col-4 m-auto">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+       <input #emailFieldRef formControlName="email" type="text"  class="form-control" id="Email" placeholder="name@email.com">
+    </div>
+
+    <div *ngIf="mailFieldErr()" class= "text-danger bg-light mb-2 p-2">
+        <i class="bi-exclamation-circle"></i>
+        {{mailFieldErr()}}
+    </div>
+
+
+    <div class="mb-3">
+        <label for="Password" class="form-label">Password:</label>
+        <input formControlName="password" type="password" class="form-control" id="password" placeholder="password">
+    </div>
+
+
+    <div *ngIf="mailFieldErr()" class= "text-danger bg-light mb-2 p-2">
+        <i class="bi-exclamation-circle"></i>
+        {{mailFieldErr()}}
+    </div>
+
+  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-lg text-center">log in</button>
