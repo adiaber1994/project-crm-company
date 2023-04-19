@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoggerService } from 'src/app/core/logger.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -7,6 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signup-page.component.css']
 })
 export class SignupPageComponent {
+
+  constructor(private logger: LoggerService){}
 
   signupForm = new FormGroup({
     name: new FormControl('', {
