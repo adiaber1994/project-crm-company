@@ -20,7 +20,7 @@ import { HomeModule } from './home/home.module';
     AuthModule,
     SharedModule,
     AboutModule,
-    HomeModule
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
