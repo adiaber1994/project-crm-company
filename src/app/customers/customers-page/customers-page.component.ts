@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/api.service';
+import { LoggerService } from 'src/app/core/logger.service';
 
 @Component({
   selector: 'app-customers-page',
@@ -8,10 +9,17 @@ import { ApiService } from 'src/app/core/api.service';
 })
 export class CustomersPageComponent implements OnInit {
 
-  constructor(private api: ApiService) {}
+  constructor(
+    private api: ApiService,
+    private logger: LoggerService
+    ) {}
 
   ngOnInit(): void {
-    this.api.getUserPosts();
+    // this.api.getUserPosts().subscribe({
+    //   next: (data) => this.logger.log (data.toString()),
+    //   error:(err) => console.log(err)
+      
+    // })
   }
 }
 
