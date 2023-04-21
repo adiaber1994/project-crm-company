@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'company-crm';
 
-  
+}
+
+export interface Customer {
+  firstName?: string | null;
+  lastName?: string | null;
+ phone?: string | null;
+  email?: string | null;
 }

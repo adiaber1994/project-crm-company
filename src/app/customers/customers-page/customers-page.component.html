@@ -1,1 +1,65 @@
-<p>customers-page works!</p>
+<div>
+    
+    <h2 class=".bg-dark-subtle mb-4 bi bi-person-fill">customers</h2>
+</div>
+
+<form [formGroup]="addCustomerForm" (ngSubmit)="onSubmit()" class="row mn-4 mb-4">
+    <div class="col-2">
+        <input formControlName="firstName" type="text" class="form-control" placeholder="first name">
+    </div>
+    <div class="col-2">
+        <input formControlName="lastName" type="text" class="form-control" placeholder="last name">
+    </div>
+    <div class="col-2">
+        <input formControlName="phone" type="text" class="form-control" placeholder="phone">
+    </div>
+    <div class="col-2">
+        <input formControlName="email" type="text" class="form-control" placeholder="email">
+    </div>
+    <div class="col-2">
+        <button [disabled]="addCustomerForm.invalid" type="submit" class="btn btn-primary bi bi-pluse">Add Customer</button>
+    </div>
+</form>
+
+<table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">phone</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let Customer of customers">
+      <tr>
+        <th scope="row">1
+             <button class="btn btn-light">
+              <i class="bi bi-eye"></i>
+            </button>
+            <button class="btn btn-light">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-light">
+                <i class="bi bi-trash"></i>
+              </button>
+        </th>
+        <td>{{Customer. firstName}}</td>
+        <td>{{Customer.lastName}}</td>
+        <td>{{Customer.phone}}</td>
+        <td>{{Customer.email}}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Customer</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+
