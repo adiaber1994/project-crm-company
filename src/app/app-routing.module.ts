@@ -7,8 +7,9 @@ import { CustomersPageComponent } from './customers/customers-page/customers-pag
 const routes: Routes = [
   {path: '', redirectTo:'/home', pathMatch: 'full'},
   {path: 'home', component: LoginPageComponent},
-  {path: 'signup', component: LoginPageComponent},
+  {path: 'signup', component:SignupPageComponent},
   {path: 'customers', component: CustomersPageComponent},
+  {path: 'login', component: LoginPageComponent},
 ];
 
 @NgModule({

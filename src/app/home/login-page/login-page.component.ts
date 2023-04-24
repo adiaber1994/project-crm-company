@@ -1,6 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { retry } from 'rxjs';
+import { User } from 'src/app/app.component';
+import { ApiService } from 'src/app/core/api.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,6 +11,11 @@ import { retry } from 'rxjs';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
+
+  constructor(
+    private api: ApiService,
+    private router: Router
+  ) {}
 
   @ViewChild('emailFieldRef') emailField!: ElementRef;
 
@@ -48,12 +56,24 @@ export class LoginPageComponent {
     console.log('ngAfterViewInit');
     this.emailField.nativeElement.focus();
   }
-onSubmit() {
-  if (this.loginForm.invalid) {
-    return;
-  }
 
-  console.log(this.loginForm.value);
-}
+
+  onSubmit() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+     
+      console.log(this.loginForm.value);
+
+      this.api.login(this.loginForm.value).subscribe({
+       next: (data: User) => {
+         console.log(data);
+         if (data.token) this.api.setToken(data.token)
+         this.router.navigate(['customers']);
+        },
+        error: (err) => console.log(err)
+      })
+  }
+  
 
 }

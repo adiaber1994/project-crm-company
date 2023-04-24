@@ -50,10 +50,10 @@ export class CustomersPageComponent implements OnInit{
 
   constructor(private api: ApiService) { }
 
-  getCustomers(){
+  getCustomers() {
     this.api.getCustomers().subscribe({
       next: (data: Array<Customer>) => {
-
+        this.customers = data;
       },
       error: (err) => console.log(err)
     })
@@ -61,8 +61,9 @@ export class CustomersPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.getCustomers();
-      
   }
+
+  
 
 
   onSubmit(){
@@ -72,11 +73,44 @@ export class CustomersPageComponent implements OnInit{
     
     this.api.addCustomer(this.addCustomerForm.value).subscribe({
       next: (data: Customer) =>{
+        this.addCustomerForm.reset();
         this.getCustomers();
       },
        error: (err) => console.log(err)
 
     })  
+
+  }
+
+
+  onDelete(customer: Customer) {
+    if (!customer._id) {
+      return;
+    }
+
+    // this.api.deleteCustomer(customer._id).subscribe({
+    //   next: (data: Customer) =>{
+    //     this.getCustomers();
+    //   },
+    //    error: (err) => console.log(err)
+
+    // })  
+    
+
+  }
+
+  onComplete(customer: Customer) {
+    if (!customer._id) {
+      return;
+    }
+
+    // this.api.updateCustomer(customer._id).subscribe({
+    //   next: (data: Customer) =>{
+    //     this.getCustomers();
+    //   },
+    //    error: (err) => console.log(err)
+
+    // })  
 
   }
 }

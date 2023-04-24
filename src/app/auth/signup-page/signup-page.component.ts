@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
+import { User } from 'src/app/app.component';
+import { ApiService } from 'src/app/core/api.service';
 import { LoggerService } from 'src/app/core/logger.service';
 
 @Component({
@@ -9,7 +12,11 @@ import { LoggerService } from 'src/app/core/logger.service';
 })
 export class SignupPageComponent {
 
-  constructor(private logger: LoggerService){}
+  constructor(
+    private logger: LoggerService,
+    private api: ApiService,
+    private router: Router
+  ){}
 
   signupForm = new FormGroup({
     name: new FormControl('', {
@@ -70,6 +77,14 @@ export class SignupPageComponent {
     if (this.signupForm.invalid) {
       return;
     }
+    console.log(this.signupForm.value);
+
+    this.api.signup(this.signupForm.value).subscribe({
+      next: (data) => {
+        this.router.navigate(['login']);
+      },
+      error: (err) => console.log(err)
+    })
   }
 
 }

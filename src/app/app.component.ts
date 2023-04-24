@@ -10,9 +10,18 @@ export class AppComponent {
 
 }
 
+export interface User {
+  _id?: string | null;
+  name?: string | null;
+  email?: string | null;
+  password?: string | null;
+  token?: string | null;
+}
+
 export interface Customer {
+  _id?: string | null,
   firstName?: string | null;
-  lastName?: string | null;
+ lastName?: string | null;
  phone?: string | null;
   email?: string | null;
 }
