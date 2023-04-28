@@ -26,11 +26,14 @@ export class ApiService {
  
   getCustomers(): Observable<Array<Customer>> {
     return this.http.get<Array<Customer>>(
-      `http://localhost:3000/customers`,
+      `${this.serverURL}customers`,
 
-    {headers: {
-      'Content-Type': 'application/json',
-      'x-auth-token': this.getToken()} }
+      {
+        headers: {
+      
+            'x-auth-token': this.getToken()
+        } 
+      }
     )
 
   }
@@ -41,8 +44,8 @@ export class ApiService {
       `http://localhost:3000/customers`,
       customer,
       {headers: {
-        'Content-Type': 'application/json',
-        'x-auth-token': this.getToken()} }
+        'x-auth-token': this.getToken()}
+      }
     )
   }
 

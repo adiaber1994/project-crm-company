@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-      <a class="navbar-brand text-success" routerLink="/">company-crm</a>
+      <a class="navbar-brand text-success" routerLink="/">COMPANY <i class="bi bi-chevron-double-up text-success"></i> CRM </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -10,16 +10,10 @@
               <li class="nav-item">
                   <a href="/customers" class="nav-link active" aria-current="page">customers</a>
               </li>
-              <li *ngIf="loggedIn()" class="nav-item">
-                  <a routerLink="/projects" class="nav-link active" aria-current="page">Projects</a>
-              </li>
               <li class="nav-item">
                   <a href="" class="nav-link active" aria-current="page">
                       employers
                   </a>
-              </li>
-              <li *ngIf="loggedIn()" class="nav-item">
-                  <a routerLink="/tasks" class="nav-link active" aria-current="page">Tasks</a>
               </li>
           </ul>
           <div class="d-flex">

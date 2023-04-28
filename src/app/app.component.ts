@@ -42,8 +42,8 @@ export interface User {
 
 export interface Customer {
   _id?: string | null,
-  firstName?: string | null;
+ firstName?: string | null;
  lastName?: string | null;
  phone?: string | null;
-  email?: string | null;
+ email?: string | null;
 }

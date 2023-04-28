@@ -4,6 +4,7 @@ import { Route, Router } from '@angular/router';
 import { retry } from 'rxjs';
 import { User } from 'src/app/app.component';
 import { ApiService } from 'src/app/core/api.service';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -14,7 +15,8 @@ export class LoginPageComponent {
 
   constructor(
     private api: ApiService,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {}
 
   @ViewChild('emailFieldRef') emailField!: ElementRef;
