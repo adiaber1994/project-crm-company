@@ -72,7 +72,7 @@ export class CustomersPageComponent implements OnInit{
     }
     
     this.api.addCustomer(this.addCustomerForm.value).subscribe({
-      next: (data: Customer) =>{
+      next: (data:Customer) =>{
         this.addCustomerForm.reset();
         this.getCustomers();
       },

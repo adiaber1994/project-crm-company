@@ -67,7 +67,6 @@ export class LoginPageComponent {
 
       this.api.login(this.loginForm.value).subscribe({
        next: (data: User) => {
-         console.log(data);
          if (data.token) this.api.setToken(data.token)
          this.router.navigate(['customers']);
         },

@@ -85,4 +85,12 @@ export class ApiService {
   }
 
 
+
+  deleteToken() {
+    localStorage.removeItem(this.TOKEN_KEY)
+  }
+
+
 }
+
+

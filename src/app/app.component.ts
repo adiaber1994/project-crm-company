@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ApiService } from './core/api.service';
+import { Route, Router } from '@angular/router';
+import { SessionService } from './core/session.service';
+import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +11,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'company-crm';
+
+
+  constructor(
+    private session: SessionService,
+    private api: ApiService,
+    private router: Router,
+    private auth: AuthService
+  ){ }
+
+ loggedIn(): boolean {
+    return this.auth.isLoggedIn()
+  }
+
+
+ logout(){
+    this.api.deleteToken();
+    this.router.navigate(['login']);
+  }
 
 }
 
