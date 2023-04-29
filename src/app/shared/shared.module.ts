@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopnavComponent } from './topnav/topnav.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { TopnavComponent } from './topnav/topnav.component';
     TopnavComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   exports: [
     TopnavComponent

@@ -1,6 +1,6 @@
 <div>
     
-  <h2 class="bg-dark-subtle mb-4 bi bi-person-fill">customers</h2>
+  <h2 class="p-3 mb-2 bg-secondary text-white"> <i class="bi bi-person-fill"></i> customers</h2>
 </div>
 
 
@@ -34,23 +34,28 @@
       </tr>
     </thead>
     <tbody>
-           <tr *ngFor="let Customer of customers">
-             <button class="btn btn-light">
-              <i class="bi bi-eye"></i>
-              </button>
-              <button class="btn btn-light">
-                <i class="bi bi-pencil"></i>
-              </button>
-              <button (click)="onDelete(Customer)" class="btn btn-light">
-                <i class="bi bi-trash"></i>
-              </button>
-              <td>{{Customer.firstName}}</td>
-              <td>{{Customer.lastName}}</td>
-              <td>{{Customer.phone}}</td>
-              <td>{{Customer.email}}</td
-            >
-      </tbody>
+      <tr *ngFor="let Customer of customers">
+        <th scope="row"> #
+          <button class="btn btn-light">
+            <i class="bi bi-eye"></i>
+            </button>
+            <button class="btn btn-light">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button (click)="onDelete(Customer)" class="btn btn-light">
+              <i class="bi bi-trash"></i>
+            </button>
+          </th>
+        <td>{{Customer.firstName}}</td>
+        <td>{{Customer.lastName}}</td>
+        <td>{{Customer.phone}}</td>
+        <td>{{Customer.email}}</td>
+      </tr>
+    </tbody>
 </table>
+
+
+
 
 
 

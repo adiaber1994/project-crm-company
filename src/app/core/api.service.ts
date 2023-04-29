@@ -25,29 +25,45 @@ export class ApiService {
 
  
   getCustomers(): Observable<Array<Customer>> {
-    return this.http.get<Array<Customer>>(
-      `${this.serverURL}customers`,
+    return this.GET<Customer>(`customers`);
 
-      {
-        headers: {
-      
-            'x-auth-token': this.getToken()
-        } 
-      }
-    )
+  }
 
+  getUsers(): Observable<Array<User>> {
+    return this.GET<User>(`users`);
   }
 
 
   addCustomer(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(
-      `http://localhost:3000/customers`,
-      customer,
-      {headers: {
-        'x-auth-token': this.getToken()}
+
+    return this.POST<Customer>('customers', customer);
+  }
+
+
+  GET<T>(endpoint: string): Observable<Array<T>> {
+    return this.http.get<Array<T>>(
+      `${this.serverURL}${endpoint}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+         'x-auth-token': this.getToken()
+        }
       }
     )
   }
+
+
+  POST<T>(endpoint:string, data: object): Observable<T>
+   {return this.http.post<T>(
+      `${this.serverURL}${endpoint}`,
+      data,
+      {headers: { 
+         'Content-Type': 'application/json',
+         'x-auth-token': this.getToken()
+        }
+      }
+  )}
+  
 
 
   deleteCustomer(id: string): Observable<Customer> {
@@ -55,22 +71,25 @@ export class ApiService {
       `${this.serverURL}customers/${id}`,
       {headers: {
         'Content-Type': 'application/json',
-        'x-auth-token': this.getToken()} }
+        'x-auth-token': this.getToken()} 
+      }
     );
 
   }
 
 
-  updateCustomer(id: string,): Observable<Customer> {
+  updateCustomer(id:string, customer: Customer): Observable<Customer> {
      return this.http.put<Customer>(
-      `${this.serverURL}customers/${id}`,
+      `${this.serverURL}customers/${customer._id}`,
+     customer,
       {headers: {
         'Content-Type': 'application/json',
-        'x-auth-token': this.getToken()} }
+        'x-auth-token': this.getToken()}
+      }
     )
   }
 
-  signup(user: User): Observable<User> {
+ signup(user: User): Observable<User> {
     return this.http.post<User>(
       `${this.serverURL}users/signup`,
       user,
@@ -95,5 +114,6 @@ export class ApiService {
 
 
 }
+
 
 

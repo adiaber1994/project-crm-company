@@ -30,7 +30,6 @@ const customerSchema = new mongoose.Schema({
         type: String,
         minlength: 6,
         maxlength: 350,
-        unique: true,
     },
 });
 

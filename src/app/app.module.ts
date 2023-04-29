@@ -7,10 +7,10 @@ import { TopnavComponent } from './shared/topnav/topnav.component';
 import { SignupPageComponent } from './auth/signup-page/signup-page.component';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
-import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
 import { CoreModule } from './core/core.module';
 import { CustomersModule } from './customers/customers.module';
+import { EmployeesModule } from './employees/employees.module';
 
 @NgModule({
   declarations: [
@@ -21,10 +21,10 @@ import { CustomersModule } from './customers/customers.module';
     AppRoutingModule,
     AuthModule,
     SharedModule,
-    AboutModule,
     HomeModule,
     CoreModule,
     CustomersModule,
+    EmployeesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

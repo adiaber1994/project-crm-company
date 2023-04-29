@@ -46,4 +46,5 @@ export interface Customer {
  lastName?: string | null;
  phone?: string | null;
  email?: string | null;
+ Address?: string | null;
 }

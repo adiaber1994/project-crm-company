@@ -70,15 +70,16 @@ export class CustomersPageComponent implements OnInit{
     if (this.addCustomerForm.invalid) {
       return;
     }
-    
+
     this.api.addCustomer(this.addCustomerForm.value).subscribe({
-      next:(data:Customer) =>{
+      next: (data : Customer) => {
         this.addCustomerForm.reset();
         this.getCustomers();
+        
       },
-       error: (err) => console.log(err)
+      error: (err) => console.log(err)
 
-    })  
+    })
 
   }
 
@@ -88,15 +89,13 @@ export class CustomersPageComponent implements OnInit{
       return;
     }
 
-    // this.api.deleteCustomer(customer._id).subscribe({
-    //   next: (data: Customer) =>{
-    //     this.getCustomers();
-    //   },
-    //    error: (err) => console.log(err)
+    this.api.deleteCustomer(customer._id).subscribe({
+      next: (data: Customer) =>{
+        this.getCustomers();
+      },
+       error: (err) => console.log(err)
 
-    // })  
-    
-
+    })  
   }
 
   onComplete(customer: Customer) {

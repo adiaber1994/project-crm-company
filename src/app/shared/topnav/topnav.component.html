@@ -8,23 +8,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                  <a href="/customers" class="nav-link active" aria-current="page">customers</a>
+                  <a routerLink="/customers" class="nav-link active" aria-current="page">customers</a>
               </li>
               <li class="nav-item">
-                  <a href="" class="nav-link active" aria-current="page">
-                      employers
+                  <a routerLink="/employees" class="nav-link active" aria-current="page">
+                      employees
                   </a>
               </li>
           </ul>
           <div class="d-flex">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                      <a href="/signup" class="nav-link active" aria-current="page">
+                      <a routerLink="/signup" class="nav-link active" aria-current="page">
                           Sign Up
                       </a>
                   </li>
                   <li *ngIf="!loggedIn()" class="nav-item">
-                      <a href="/login" class="nav-link active" aria-current="page">
+                      <a routerLink="/login" class="nav-link active" aria-current="page">
                           Login
                       </a>
                   </li>

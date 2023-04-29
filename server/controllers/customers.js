@@ -2,7 +2,7 @@ const joi = require('joi');
 const { Customer } = require('../models/Customer');
 
 module.exports = {
-    getAll: async function (req, res, next) {
+    getAll: async function (_req, res, _next) {
         try {
             const result = await Customer.find({});
             res.json(result);
@@ -13,7 +13,7 @@ module.exports = {
         }
     },
 
-    getOne: async function (req, res, next) {
+    getOne: async function (req, res, _next) {
         try {
             const schema = joi.object({
                 id: joi.string().required(),
@@ -36,14 +36,14 @@ module.exports = {
         }
     },
 
-    addNew: async function (req, res, next) {
+    addNew: async function (req, res, _next) {
         try {
             const schema = joi.object({
                 firstName: joi.string().min(2).max(200).required(),
                 lastName: joi.string().min(2).max(200).required(),
                 phone: joi.string().min(9).max(12).required(),
                 email: joi.string().min(6).max(255).required(),
-                Address: joi.string().min(6).max(350),
+                Address: joi.string().min(6).max(350).optional(),
             });
 
             const { error, value } = schema.validate(req.body);
@@ -63,7 +63,7 @@ module.exports = {
         }
     },
 
-    updateDetails: async function (req, res, next) {
+    updateDetails: async function (req, res, _next) {
         try {
             const schema = joi.object({
                 firstName: joi.string().min(2).max(200),
@@ -95,7 +95,7 @@ module.exports = {
         }
     },
 
-    deleteOne: async function (req, res, next) {
+    deleteOne: async function (req, res, _next) {
         try {
             const schema = joi.object({
                 id: joi.string().required(),
