@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Employee, User } from 'src/app/app.component';
 import { ApiService } from 'src/app/core/api.service';
 
@@ -8,6 +8,8 @@ import { ApiService } from 'src/app/core/api.service';
   styleUrls: ['./employees-page.component.css']
 })
 export class EmployeesPageComponent implements OnInit {
+  @Input() email='';
+  filterData:Array<Employee>=[];
 
   employees: Array<Employee> = [];
 
@@ -19,6 +21,14 @@ export class EmployeesPageComponent implements OnInit {
       error: (err) => console.log(err)
     })
     
+  }
+
+  serchInEmployees(event: any) {
+    if(event.target.value ==='')
+     this.api.getEmployees();
+    this.filterData=this.employees.filter(emp => emp.name?.includes(event.target.value))
+    console.log(this.filterData);
+    this.employees=this.filterData
   }
 
 

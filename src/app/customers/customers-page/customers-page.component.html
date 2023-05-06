@@ -35,7 +35,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let Customer of customers">
-        <th scope="row"> #
+        <th scope="row">
+          {{customers.indexOf(Customer) +1}}
           <a routerLink="/view-customer/{{Customer._id}}" class="btn btn-light">
             <i class="bi bi-eye"></i>
           </a>

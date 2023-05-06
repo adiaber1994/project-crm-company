@@ -47,13 +47,13 @@ export interface Customer {
  lastName?: string | null;
  phone?: string | null;
  email?: string | null;
- Address?: string | null;
+ address?: string | null;
 }
 
 export interface Employee {
   _id?: string | null;
   name?: string | null;
   email?: string | null;
-  birthday?: string | null;
+  birthday?: Date | null;
   phone?: string | null;
 }

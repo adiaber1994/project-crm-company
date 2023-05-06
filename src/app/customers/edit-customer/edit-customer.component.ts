@@ -46,7 +46,7 @@ export class EditCustomerComponent implements OnInit {
       ]
     }),
 
-    Address: new FormControl('', {
+   address: new FormControl('', {
       validators: [
         Validators.minLength(6),
         Validators.maxLength(255),
@@ -75,12 +75,12 @@ export class EditCustomerComponent implements OnInit {
          const lastName = data.lastName || '';
          const phone = data.phone || '';
          const email = data.email || '';
-         const Address = data.Address || '';
+         const address = data.address || '';
          this.editCustomerForm.get('firstName')?.setValue(firstName);
          this.editCustomerForm.get('lastName')?.setValue(lastName);
          this.editCustomerForm.get('phone')?.setValue(phone);
          this.editCustomerForm.get('email')?.setValue(email);
-         this.editCustomerForm.get('Address')?.setValue(Address);
+         this.editCustomerForm.get('address')?.setValue(address);
         },
         error: (err) => console.log(err) })
       

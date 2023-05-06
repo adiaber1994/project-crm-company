@@ -46,7 +46,7 @@ export class ViewCustomerComponent implements OnInit {
       ]
     }),
 
-    Address: new FormControl('', {
+    address: new FormControl('', {
       validators: [
         Validators.minLength(6),
         Validators.maxLength(255),
@@ -74,12 +74,12 @@ export class ViewCustomerComponent implements OnInit {
         const lastName = data.lastName || '';
         const phone = data.phone || '';
         const email = data.email || '';
-        const Address = data.Address || '';
+        const address = data.address || '';
         this.viewCustomerForm.get('firstName')?.setValue(firstName);
         this.viewCustomerForm.get('lastName')?.setValue(lastName);
         this.viewCustomerForm.get('phone')?.setValue(phone);
         this.viewCustomerForm.get('email')?.setValue(email);
-        this.viewCustomerForm.get('Address')?.setValue(Address);
+        this.viewCustomerForm.get('address')?.setValue(address);
 
       },
       error: (err) => console.log(err) 

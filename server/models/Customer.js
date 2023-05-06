@@ -26,7 +26,7 @@ const customerSchema = new mongoose.Schema({
         maxlength: 255,
         unique: true,
     },
-    Address: {
+    address: {
         type: String,
         minlength: 6,
         maxlength: 350,

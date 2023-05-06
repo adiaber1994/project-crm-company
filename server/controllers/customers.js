@@ -70,7 +70,7 @@ module.exports = {
                 lastName: joi.string().min(2).max(200),
                 phone: joi.string().min(9).max(12),
                 email: joi.string().min(6).max(255),
-                Address: joi.string().min(6).max(350).allow(null,''),
+                address: joi.string().min(6).max(350).allow(null,''),
             }).min(1);
 
             const { error, value } = schema.validate(req.body);
