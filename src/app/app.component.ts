@@ -11,6 +11,7 @@ import { AuthService } from './core/auth.service';
 })
 export class AppComponent {
   title = 'company-crm';
+  developer = '2023';
 
 
   constructor(

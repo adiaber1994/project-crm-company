@@ -36,9 +36,9 @@
     <tbody>
       <tr *ngFor="let Customer of customers">
         <th scope="row"> #
-          <button class="btn btn-light">
+          <a routerLink="/view-customer/{{Customer._id}}" class="btn btn-light">
             <i class="bi bi-eye"></i>
-            </button>
+          </a>
             <a routerLink="/edit-customer/{{Customer._id}}" class="btn btn-light">
               <i class="bi bi-pencil"></i>
             </a>

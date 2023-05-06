@@ -4,13 +4,15 @@ import { CustomersPageComponent } from './customers-page/customers-page.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { RouterModule } from '@angular/router';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
 
 
 
 @NgModule({
   declarations: [
     CustomersPageComponent,
-    EditCustomerComponent
+    EditCustomerComponent,
+    ViewCustomerComponent
   ],
   imports: [
     CommonModule,

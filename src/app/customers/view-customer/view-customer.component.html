@@ -1,0 +1,31 @@
+<div>
+    <h2 class="p-3 mb-2 bg-secondary text-white"><i class="bi bi-person-circle"></i> Customer Details</h2>
+</div>
+
+<form [formGroup]="viewCustomerForm" (ngSubmit)="onSubmit()" class="row g-5">
+
+    <div class= "col-md-6">
+        <label for="firstName">First Name</label>
+        <input readonly formControlName="firstName" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="col-md-6">
+        <label for="LastName">Last Name</label>
+        <input readonly formControlName="lastName" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="col-md-6">
+        <label for="phone">phone</label>
+        <input readonly formControlName="phone" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="col-md-6">
+        <label for="email">email</label>
+        <input readonly formControlName="email" type="text" class="form-control" placeholder="">
+    </div>    
+    <div class="col-12 ">
+        <label for="Adress">Adress</label>
+        <input readonly formControlName="Adress" type="text" class="form-control" placeholder="">
+    </div>
+    
+    <div class="col-1" style=>
+        <button type="submit" class="btn btn-primary bi bi-pluse">Back</button>
+    </div>
+</form>
