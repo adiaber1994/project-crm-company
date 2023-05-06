@@ -21,29 +21,20 @@
     <thead>
       <tr>
         <th scope="col">No.</th>
-        <th scope="col"> Name</th>
+        <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Birthday</th>
         <th scope="col">Phone</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row"> #
-          <button class="btn btn-light">
-            <i class="bi bi-eye"></i>
-            </button>
-            <button class="btn btn-light">
-              <i class="bi bi-pencil"></i>
-            </button>
-            <button class="btn btn-light">
-              <i class="bi bi-trash"></i>
-            </button>
+      <tr *ngFor="let employee of employees">
+        <th scope="row">#
           </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.birthday}}</td>
+        <td>{{employee.phone}}</td>
       </tr>
     </tbody>
 </table>

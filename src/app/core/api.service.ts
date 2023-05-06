@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Customer, User } from '../app.component';
+import { Customer, Employee, User } from '../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +25,20 @@ export class ApiService {
 
  
   getCustomers(): Observable<Array<Customer>> {
-    return this.GET<Customer>(`customers`);
+    return this.GET<Array<Customer>>(`customers`);
 
   }
 
   getUsers(): Observable<Array<User>> {
-    return this.GET<User>(`users`);
+    return this.GET<Array<User>>(`users`);
+  }
+
+  getEmployees(): Observable<Array<Employee>> {
+    return this.GET<Array<Employee>>(`employees`);
+  }
+
+  getOnecustomer(id: string): Observable<Customer>{
+    return this.GET<Customer>(`customers/${id}`);
   }
 
 
@@ -40,8 +48,8 @@ export class ApiService {
   }
 
 
-  GET<T>(endpoint: string): Observable<Array<T>> {
-    return this.http.get<Array<T>>(
+  GET<T>(endpoint: string): Observable<T> {
+    return this.http.get<T>(
       `${this.serverURL}${endpoint}`,
       {
         headers: {
@@ -78,9 +86,9 @@ export class ApiService {
   }
 
 
-  updateCustomer(id:string, customer: Customer): Observable<Customer> {
+  updateCustomer(id: string, customer: Customer): Observable<Customer> {
      return this.http.put<Customer>(
-      `${this.serverURL}customers/${customer._id}`,
+      `${this.serverURL}customers/${id}`,
      customer,
       {headers: {
         'Content-Type': 'application/json',

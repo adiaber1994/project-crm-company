@@ -21,8 +21,7 @@ const employeeSchema = new mongoose.Schema({
         unique: true,
     },
     birthday: {
-        type: Date,
-        default: Date.now,
+        type: Date
     },
 });
 

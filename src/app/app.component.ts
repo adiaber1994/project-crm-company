@@ -41,10 +41,18 @@ export interface User {
 }
 
 export interface Customer {
-  _id?: string | null,
+  _id?: string | null;
  firstName?: string | null;
  lastName?: string | null;
  phone?: string | null;
  email?: string | null;
  Address?: string | null;
+}
+
+export interface Employee {
+  _id?: string | null;
+  name?: string | null;
+  email?: string | null;
+  birthday?: string | null;
+  phone?: string | null;
 }

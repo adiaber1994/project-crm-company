@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/app.component';
+import { Employee, User } from 'src/app/app.component';
 import { ApiService } from 'src/app/core/api.service';
 
 @Component({
@@ -7,12 +7,21 @@ import { ApiService } from 'src/app/core/api.service';
   templateUrl: './employees-page.component.html',
   styleUrls: ['./employees-page.component.css']
 })
-export class EmployeesPageComponent {}
+export class EmployeesPageComponent implements OnInit {
 
-  // employees: Array<employe> = [];
+  employees: Array<Employee> = [];
 
-  // constructor(private api: ApiService) {
+  constructor(private api: ApiService) {
+  }
+  ngOnInit(): void {
+    this.api.getEmployees().subscribe({
+      next: (data: Array<Employee>) => this.employees = data,
+      error: (err) => console.log(err)
+    })
+    
+  }
 
-  // }
 
-// }
+}
+
+  

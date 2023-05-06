@@ -1,0 +1,36 @@
+
+<div>
+    <h2 class="p-3 mb-2 bg-secondary text-white"><i class="bi bi-pencil"></i>Edit Customer Form</h2>
+</div>
+
+<form [formGroup]="editCustomerForm" (ngSubmit)="onSubmit()" class="row g-5">
+
+    <div class= "col-md-6">
+        <label for="firstName">First Name</label>
+        <input formControlName="firstName" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="col-md-6">
+        <label for="LastName">Last Name</label>
+        <input formControlName="lastName" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="col-md-6">
+        <label for="phone">phone</label>
+        <input formControlName="phone" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="col-md-6">
+        <label for="email">email</label>
+        <input formControlName="email" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="col-12 ">
+        <label for="Adress">Adress</label>
+        <input formControlName="Adress" type="text" class="form-control" placeholder="">
+    </div>
+    
+    <div class="col-1" style=>
+        <button [disabled]="editCustomerForm.invalid" type="submit" class="btn btn-primary bi bi-pluse">Update</button>
+    </div>
+    <div class="col-1" style=>
+        <button  type="cancel" class="btn btn-primary bi bi-pluse">cancel</button>
+    </div>
+ 
+</form>

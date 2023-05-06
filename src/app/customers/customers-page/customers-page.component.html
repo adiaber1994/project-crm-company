@@ -39,9 +39,9 @@
           <button class="btn btn-light">
             <i class="bi bi-eye"></i>
             </button>
-            <button class="btn btn-light">
+            <a routerLink="/edit-customer/{{Customer._id}}" class="btn btn-light">
               <i class="bi bi-pencil"></i>
-            </button>
+            </a>
             <button (click)="onDelete(Customer)" class="btn btn-light">
               <i class="bi bi-trash"></i>
             </button>
