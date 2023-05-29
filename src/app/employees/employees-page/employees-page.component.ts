@@ -24,10 +24,10 @@ export class EmployeesPageComponent implements OnInit {
   }
 
   serchInEmployees(event: any) {
-    if(event.target.value ==='')
-     this.api.getEmployees();
+    if(event.target.value === '')
+   this.api.getEmployees();
+
     this.filterData=this.employees.filter(emp => emp.name?.includes(event.target.value))
-    console.log(this.filterData);
     this.employees=this.filterData
   }
 
